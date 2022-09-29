@@ -9,7 +9,7 @@ import (
 )
 
 func InitSql() {
-	var dsn = SpliceDsn()
+	var dsn = spliceDsn()
 
 	db, err := sql.Open("mysql", dsn)
 
@@ -23,21 +23,10 @@ func InitSql() {
 		return
 	}
 	fmt.Printf("success")
-
-	str := db.QueryRow("SELECT * from other ")
-
-	var (
-		name string
-		sex  string
-	)
-
-	str.Scan(&name, &sex)
-
-	fmt.Println(name, sex)
 }
 
-func SpliceDsn() string {
-	var info sqlInfo.SqlConfigs
+func spliceDsn() string {
+	var info sqlInfo.Conn
 	info = sqlInfo.MysqlConfigs()
 
 	var dsn string

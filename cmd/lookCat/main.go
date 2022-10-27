@@ -1,9 +1,9 @@
 package main
 
 import (
-	other "LookCat/internal/linkSql"
+	sever "LookCat/internal/sever"
 )
 
 func main() {
-	other.InitSql()
+	sever.Init()
 }
